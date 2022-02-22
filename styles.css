@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -16,37 +17,44 @@ h1 {
 #navbar {
     display: flex;
     justify-content: flex-end;
-    background-color: aquamarine;
     position: fixed;
     width: 100%;
-}
-
-.nav {
-    justify-content: center;
+    background: cadetblue;
 }
 
 .nav-list {
     display: flex;
-    margin: 0 3rem;
-}
-
-ul {
-    display: flex;
+    margin-right: 20px;
     list-style: none;
-}
-
-a {
-    text-decoration: none;
-    color: white;
 }
 
 .nav-list a {
     display: block;
-    padding: 1rem;
+    color: white;
+    padding: 20px;
+    margin: 0;
+    text-decoration: none;
 }
 
 .nav-list a:hover {
-    background-color: rgb(46, 46, 179);   
+    background: rgb(57, 57, 105);
+}
+  
+
+@media (max-width: 600px) {
+    html {
+      font-size: 14px;
+    }
+}
+  
+.project-grid a {
+    text-decoration: none;
+    color: black;
+}
+
+.contact-links a {
+    text-decoration: none;
+    color: WHITE;
 }
 
 .welcome-section {
@@ -55,7 +63,7 @@ a {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 400px;
+    height: 100vh;
     background-color: rgb(0, 0, 0);
     background-image: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
   }
@@ -64,35 +72,52 @@ a {
     color: white;
 }
 
-#projects {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.project-section {
+    text-align: center;
+    padding: 20px 0px;
+    background: rgb(129, 148, 184);
 }
-.project-title {
+
+.project-section a {
+    text-decoration: none;
+}
+
+.project-section h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.project-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.project-title img{
+.project-tile {
+    padding: 0 20px;
+}
+
+.project-tile img {
     height: 200px;
 }
 
-figcaption {
-    text-align: center;
-    font-size: 14px;   
-}
-
-figure {
-    margin: 20px;
-}
+.code {
+    color: rgb(129, 148, 184);
+    transition: color 0.3s ease-out;
+  }
+  
+.project-tile:hover .code {
+    color: #3d3d3d;}
 
 #contact {
     display: flex;
     flex-direction: column;
     align-items: center;
     background: gray;
+    padding-bottom: 10px;
+    padding: 20px;
 }
 
 #contact i, a {
@@ -105,22 +130,18 @@ footer {
     justify-content: space-evenly;
     padding: 2rem;
     background: gray;
-    border-top: 4px solid aquamarine;
-  }
+    border-top: 4px solid cadetblue;
+}
   
-  footer > p {
-    margin: 2rem;
-  }
+footer p {
+    margin: 5px;
+}
   
-  footer i {
+footer i {
     vertical-align: middle;
-  }
+}
   
-  @media (max-width: 28.75em) {
-    footer {
-      flex-direction: column;
-      text-align: center;
-    }
-  }
+
+
   
 
