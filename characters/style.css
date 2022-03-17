@@ -21,7 +21,7 @@ button {
   width: 10rem;
   height: 3rem;
   margin: 1rem;
-  background-color: blue;
-  color: aliceblue;
+  background-color: rgb(29, 29, 153);
+  color: rgb(255, 255, 255);
   font-size: large;
 }
