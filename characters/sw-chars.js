@@ -1,4 +1,5 @@
 import { people } from '../data/people.js'
+import { getLastNumber, removeChildren } from '../utils/index.js'
 
 const header = document.querySelector('header')
 const main = document.querySelector('main')
@@ -6,27 +7,45 @@ const main = document.querySelector('main')
 const allCharsButton = document.createElement('button')
 allCharsButton.textContent = 'All Characters'
 allCharsButton.addEventListener('click', function () {
-  console.log('Thanks for clicking!')
-  populateDOM()
+  populateDOM(people)
 })
-header.appendChild(allCharsButton)
 
-function populateDOM() {
-  people.forEach((person) => {
+const maleCharacters = people.filter(person => person.gender === 'male')  // elegant filter!
+
+/* const maleCharacters = people.filter((person) => {
+  console.log(person)
+  return person.gender === 'male'
+}) */
+
+// TODO: make a filter for female characters
+// TODO: make a filter for other characters
+
+const maleCharsButton = document.createElement('button')
+maleCharsButton.textContent = 'Male Characters'
+maleCharsButton.addEventListener('click', () => populateDOM(maleCharacters))
+
+// TODO: create a female characters button and add it to the DOM
+// TODO: create a other characters button and add it to the DOM
+
+header.appendChild(allCharsButton)
+header.appendChild(maleCharsButton)
+
+function populateDOM(characters) {
+  // loop through all the characters and make figure elements and insert them into DOM
+  removeChildren(main)
+  characters.forEach((person) => {
     const personFig = document.createElement('figure')
     const personImg = document.createElement('img')
+
+    // Set the new image's source property to a valid URL or path
     let charNum = getLastNumber(person.url)
+
     personImg.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`
     const personCap = document.createElement('figcaption')
-    personCap.textContent = 'Some star wars character'
+    personCap.textContent = person.name
 
     personFig.appendChild(personImg)
     personFig.appendChild(personCap)
     main.appendChild(personFig)
   })
-}
-
-function getLastNumber(url) {
-  const secondToLastLetterOfUrl = url[url.length - 2]
-  return secondToLastLetterOfUrl// return the second to last number from the url property of a film object
 }
