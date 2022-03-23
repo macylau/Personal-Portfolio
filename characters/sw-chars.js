@@ -23,14 +23,17 @@ const otherCharacters = people.filter ((person) =>  {
 
 
 const maleCharsButton = document.createElement('button')
+maleCharsButton.setAttribute("id", "male")
 maleCharsButton.textContent = 'Male Characters'
 maleCharsButton.addEventListener('click', () => populateDOM(maleCharacters))
 
 const femaleCharsButton = document.createElement('button')
+femaleCharsButton.setAttribute("id", "female")
 femaleCharsButton.textContent = 'Female Characters'
 femaleCharsButton.addEventListener('click', () => populateDOM(femaleCharacters))
 
 const otherCharsButton = document.createElement('button')
+otherCharsButton.setAttribute("id", "others")
 otherCharsButton.textContent = 'Other Characters'
 otherCharsButton.addEventListener('click', () => populateDOM(otherCharacters))
 

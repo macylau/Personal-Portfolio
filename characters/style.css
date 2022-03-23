@@ -5,6 +5,11 @@
   font-family: 'Poppins', sans-serif;
 }
 
+html {
+  background-color: rgb(0, 0, 0);
+  background-image: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
+}
+
 main {
   display: flex;
   flex-wrap: wrap;
@@ -13,6 +18,9 @@ main {
 figure {
   margin: .5rem;
   text-align: center;
+  color: white;
+  border: 2px solid rgb(255, 233, 161);
+  padding-bottom: 0.5rem;
 }
 
 figure img {
@@ -23,10 +31,27 @@ button {
   width: 10rem;
   height: 3rem;
   margin: 1rem;
-  background-color: rgb(117, 161, 255);
+  background-color: rgb(74, 134, 59);
   border: none;
   color: rgb(255, 255, 255);
   font-size: medium;
   border-radius: 15px;
-  box-shadow: 3px 3px 10px #888888;
+  cursor: pointer;
 }
+
+button:hover {
+  background-color: rgb(235, 168, 93);
+}
+
+#male:hover {
+  background-color: rgb(81, 162, 255);
+}
+
+#female:hover {
+  background-color: rgb(248, 139, 203);
+}
+
+#others:hover {
+  background-color: rgb(167, 100, 255);
+}
+

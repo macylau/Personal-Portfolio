@@ -103,10 +103,11 @@ h1 {
     height: 200px;
 }
 
-.code {
-    color: rgb(129, 148, 184);
+p:hover {
+    color: rgb(255, 177, 87);
     transition: color 0.3s ease-out;
-  }
+}
+
   
 .project-tile:hover .code {
     color: #3d3d3d;}
