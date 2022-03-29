@@ -11,7 +11,7 @@ const ANSWER = 42;
 
 // Strings - collection of characters
 
-let string1 = "Hello World!";  
+let string1 = "Hello World!";
 
 string1 = "Hello Utah!"; // let allows me to change the value of the variable
 
@@ -40,38 +40,94 @@ let myArray = []; // this is an empty array
 // 0 indexed:   0     1       2       3      4
 let myArray2 = [42, "Bob", myBool, ANSWER, true];
 
-let lastItem = myArray2[myArray2.length - 1]
+let lastItem = myArray2[myArray2.length - 1];
 
 // Objects
 
-let minObject = {};  // this is the most minimal javascript object you can have
+let minObject = {}; // this is the most minimal javascript object you can have
 
-let myCar = { // JS objects are comprised of key:value pairs
-  make: 'Jeep',
-  model: 'Cherokee',
-  year: '1998',
-  vin: '230894720893749238748'
-}
+let myCar = {
+  // JS objects are comprised of key:value pairs
+  make: "Jeep",
+  model: "Cherokee",
+  year: "1998",
+  vin: "230894720893749238748",
+};
 
 let newVar = myCar.make; // used dot notation (.) to access an object's property value
 
-myCar.numDoors = 6;  // can also use dot notation to add a property to an object
+myCar.numDoors = 6; // can also use dot notation to add a property to an object
 
 const anotherObject = {
-  wordz: ['foo', 'bar', 'baz'],
+  wordz: ["foo", "bar", "baz"],
   car: {
-    make: 'McLaren',
-    model: '720S'
+    make: "McLaren",
+    model: "720S",
   },
-  awesomeness: true
-}
+  awesomeness: true,
+};
 
 // Functions
 
 function myFunction() {
-  return "My greeting to you from this very fine, simple function!"
+  return "My greeting to you from this very fine, simple function!";
 }
 
 function sumTwoThings(thing1, thing2) {
   return thing1 + thing2;
 }
+
+//Filter method example. Filter returns an array of all elements that 'pass the test'
+const pilots = [
+  {
+    id: 2,
+    name: "Wedge Antilles",
+    facttion: "Empire",
+  },
+  {
+    id: 8,
+    name: "Ciena Ree",
+    faction: "Empire",
+  },
+  {
+    id: 40,
+    name: "Iden Versio",
+    faction: "Empire",
+  },
+  {
+    id: 66,
+    name: "Thane Kyrell",
+    faction: "Rebels",
+  },
+]
+
+const rebels = pilots.filter(pilot => pilot.faction === "Rebels")
+
+const empire = pilots.filter((pilot) => {
+  return pilot.faction === 'Empire'
+})
+
+// Array helper method 'map' example
+
+let filmURLs = [
+  "https://swapi.co/api/films/",
+  "https://swapi.co/api/films/5/",
+  "https://swapi.co/api/films/4/this one is longer... even longer",
+  "https://swapi.co/api/films/6/",
+  "https: ",
+  "https://swapi.co/api/films/1/"
+]
+
+const filmLengths = filmURLs.map(filmURL => filmURL.length)
+
+const filmPlusMore = filmURLs.map(filmURL => {
+  let filmObj = {
+    url: filmURL,
+    createdDate: Date.now()
+  }
+  return filmObj
+})
+
+const pilotNames = pilots.map(pilot => pilot.name) // new array just contains pilot's names
+
+// Ternary operator syntax: condition ? exprIfTrue : exprIfFalse
