@@ -99,13 +99,13 @@ const pilots = [
     name: "Thane Kyrell",
     faction: "Rebels",
   },
-]
+];
 
-const rebels = pilots.filter(pilot => pilot.faction === "Rebels")
+const rebels = pilots.filter((pilot) => pilot.faction === "Rebels");
 
 const empire = pilots.filter((pilot) => {
-  return pilot.faction === 'Empire'
-})
+  return pilot.faction === "Empire";
+});
 
 // Array helper method 'map' example
 
@@ -115,19 +115,49 @@ let filmURLs = [
   "https://swapi.co/api/films/4/this one is longer... even longer",
   "https://swapi.co/api/films/6/",
   "https: ",
-  "https://swapi.co/api/films/1/"
-]
+  "https://swapi.co/api/films/1/",
+];
 
-const filmLengths = filmURLs.map(filmURL => filmURL.length)
+const filmLengths = filmURLs.map((filmURL) => filmURL.length);
 
-const filmPlusMore = filmURLs.map(filmURL => {
+const filmPlusMore = filmURLs.map((filmURL) => {
   let filmObj = {
     url: filmURL,
-    createdDate: Date.now()
-  }
-  return filmObj
-})
+    createdDate: Date.now(),
+  };
+  return filmObj;
+});
 
-const pilotNames = pilots.map(pilot => pilot.name) // new array just contains pilot's names
+const pilotNames = pilots.map((pilot) => pilot.name); // new array just contains pilot's names
 
 // Ternary operator syntax: condition ? exprIfTrue : exprIfFalse
+
+// Reduce example
+const swpilots = [
+  {
+    id: 10,
+    name: "Poe Dameron",
+    years: 14,
+  },
+  {
+    id: 2,
+    name: "Temmin 'Snap' Wexley",
+    years: 30,
+  },
+  {
+    id: 41,
+    name: "Tallissan Lintra",
+    years: 16,
+  },
+  {
+    id: 99,
+    name: "Ello Asty",
+    years: 22,
+  },
+];
+
+const totalYears = swpilots.reduce((acc, pilot) => acc + pilot.years, 0) //totalYears should === 82
+
+const mostExpPilot = swpilots.reduce((oldest, pilot) => {
+  return (oldest.years || 0) > pilot.years ? oldest : pilot
+}, {})
