@@ -11,6 +11,16 @@ body {
     display: flex;
 }
 
+.shipViewer {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .shipViewer img {
+    padding: 5rem;
+  }
+
 .box {
     background: rgb(164, 255, 246);
     color: rgb(37, 37, 37);

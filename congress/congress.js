@@ -1,7 +1,7 @@
 import { senators } from "../data/senators.js";
 import { representatives } from "../data/representatives.js";
 
-const allCongressMemebers = [...senators, ...representatives] // modern way to combine arrays
+const allCongressMemebers = [...senators, ...representatives]; // modern way to combine arrays
 
 const senatorDiv = document.querySelector(".senatorDiv");
 const seniorityHeading = document.querySelector(".seniorty");
@@ -46,9 +46,20 @@ const mostSeniorMember = simplifiedSenators().reduce((acc, senator) => {
   return acc.seniority > senator.seniority ? acc : senator;
 });
 
+const biggestMissedVotedsPct = simplifiedSenators().reduce((acc, senator) =>
+  acc.missedVotesPct > senator.missedVotesPct ? acc : senator
+);
 
+const biggestVacationerList = simplifiedSenators()
+  .filter(
+    (senator) =>
+      senator.missedVotesPct === biggestMissedVotedsPct.missedVotesPct
+  )
+  .map((senator) => senator.name)
+  .join(" and ");
 
-seniorityHeading.textContent = `The most senior member of the senate is ${mostSeniorMember.name} `;
+seniorityHeading.textContent = `The most senior member of the senate is ${mostSeniorMember.name} 
+and the biggest vacationers are ${biggestVacationerList}`;
 
 simplifiedSenators().forEach((senator) => {
   if (senator.loyaltyPct === 100) {
@@ -63,19 +74,3 @@ simplifiedSenators().forEach((senator) => {
 //To Do Much better styling of the grid of sentors and their names
 //To Do Maybe include more data with each congress memeber such as links to their Twitter or FB pages
 //To Do Incorporate a way to select the members of the house of representatives
-
-const biggestMissedVotedsPct = simplifiedSenators().reduce((acc, senator) =>
-  acc.missedVotesPct > senator.missedVotesPct ? acc : senator
-);
-
-console.log(biggestMissedVotedsPct.missedVotesPct);
-
-const biggestVacationerList = simplifiedSenators()
-  .filter(
-    (senator) =>
-      senator.missedVotesPct === biggestMissedVotedsPct.missedVotesPct
-  )
-  .map((senator) => senator.name)
-  .join();
-
-  console.log(biggestVacationerList)
