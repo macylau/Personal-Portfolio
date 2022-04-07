@@ -5,6 +5,18 @@
     font-family: 'Poppins', sans-serif;
 }
 
+header {
+    margin: 10px;
+}
+
+h1 {
+    color: saddlebrown;
+}
+
+h3 {
+    font-size: larger;
+}
+
 .senatorDiv {
     display: flex;
     flex-wrap: wrap;

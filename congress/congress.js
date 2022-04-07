@@ -3,9 +3,18 @@ import { representatives } from "../data/representatives.js";
 
 const allCongressMemebers = [...senators, ...representatives]; // modern way to combine arrays
 
+// const allSenatorButton = document.createElement('button')
+// allSenatorButton.textContent = 'All Senators'
+// allSenatorButton.addEventListener('click', function () {
+//   populateDOM(people)
+// })
+
+// const maleSenators = people.filter(person => person.gender === 'M')
+
 const senatorDiv = document.querySelector(".senatorDiv");
 const seniorityHeading = document.querySelector(".seniorty");
 const loyaltyList = document.querySelector(".loyaltyList");
+
 
 function simplifiedSenators() {
   return senators.map((senator) => {
@@ -22,6 +31,17 @@ function simplifiedSenators() {
     };
   });
 }
+
+
+// const maleSenatorButton = document.createElement('button')
+// maleSenatorButton.setAttribute("gender", "M")
+// maleSenatorButton.textContent = 'Male Senators'
+// maleSenatorButton.addEventListener('click', () => populateDOM(maleSenators))
+
+// header.appendChild(allCongressButton)
+// header.appendChild(maleSenators)
+
+
 
 const simpleSenators = simplifiedSenators();
 
