@@ -70,7 +70,7 @@ simplifiedSenators().forEach((senator) => {
 });
 
 //To Do items to consider for your final project
-//To Do somesort of UI for sorting by party affiliation or by party and gender with a count
+//To Do some sort of UI for sorting by party affiliation or by party and gender with a count
 //To Do Much better styling of the grid of sentors and their names
 //To Do Maybe include more data with each congress memeber such as links to their Twitter or FB pages
 //To Do Incorporate a way to select the members of the house of representatives
