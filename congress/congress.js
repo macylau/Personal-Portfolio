@@ -3,18 +3,9 @@ import { representatives } from "../data/representatives.js";
 
 const allCongressMemebers = [...senators, ...representatives]; // modern way to combine arrays
 
-// const allSenatorButton = document.createElement('button')
-// allSenatorButton.textContent = 'All Senators'
-// allSenatorButton.addEventListener('click', function () {
-//   populateDOM(people)
-// })
-
-// const maleSenators = people.filter(person => person.gender === 'M')
-
 const senatorDiv = document.querySelector(".senatorDiv");
 const seniorityHeading = document.querySelector(".seniorty");
 const loyaltyList = document.querySelector(".loyaltyList");
-
 
 function simplifiedSenators() {
   return senators.map((senator) => {
@@ -32,17 +23,6 @@ function simplifiedSenators() {
   });
 }
 
-
-// const maleSenatorButton = document.createElement('button')
-// maleSenatorButton.setAttribute("gender", "M")
-// maleSenatorButton.textContent = 'Male Senators'
-// maleSenatorButton.addEventListener('click', () => populateDOM(maleSenators))
-
-// header.appendChild(allCongressButton)
-// header.appendChild(maleSenators)
-
-
-
 const simpleSenators = simplifiedSenators();
 
 function populateSenatorDiv(simpleSenators) {
@@ -54,15 +34,17 @@ function populateSenatorDiv(simpleSenators) {
     figImg.src = senator.imgURL;
     figCaption.textContent = senator.name;
 
+
     senFigure.appendChild(figImg);
     senFigure.appendChild(figCaption);
     senatorDiv.appendChild(senFigure);
+    
   });
 }
 
 populateSenatorDiv(simpleSenators);
 
-const mostSeniorMember = simplifiedSenators().reduce((acc, senator) => {
+const mostSeniorMemeber = simplifiedSenators().reduce((acc, senator) => {
   return acc.seniority > senator.seniority ? acc : senator;
 });
 
@@ -78,8 +60,34 @@ const biggestVacationerList = simplifiedSenators()
   .map((senator) => senator.name)
   .join(" and ");
 
-seniorityHeading.textContent = `The most senior member of the senate is ${mostSeniorMember.name} 
+seniorityHeading.textContent = `The most senior member of the senate is ${mostSeniorMemeber.name} 
 and the biggest vacationers are ${biggestVacationerList}`;
+
+const republicanList = document.querySelector(".republicanList")
+document.getElementById("showRepublicans").addEventListener("click", showRepublicans);
+
+function showRepublicans () {
+  simplifiedSenators().forEach((senator) => {
+  if (senator.party === 'R') {
+    let repList = document.createElement("li");
+    repList.textContent = senator.name;
+    republicanList.appendChild(repList);
+  }
+})
+}
+
+const democratList = document.querySelector(".democratList")
+document.getElementById("showDemocrats").addEventListener("click", showDemocrats);
+
+function showDemocrats () {
+  simplifiedSenators().forEach((senator) => {
+  if (senator.party === 'D') {
+    let demList = document.createElement("li");
+    demList.textContent = senator.name;
+    democratList.appendChild(demList);
+  }
+})
+}
 
 simplifiedSenators().forEach((senator) => {
   if (senator.loyaltyPct === 100) {
@@ -88,6 +96,7 @@ simplifiedSenators().forEach((senator) => {
     loyaltyList.appendChild(listItem);
   }
 });
+
 
 //To Do items to consider for your final project
 //To Do some sort of UI for sorting by party affiliation or by party and gender with a count

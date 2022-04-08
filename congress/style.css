@@ -7,6 +7,7 @@
 
 header {
     margin: 10px;
+    text-align: center;
 }
 
 h1 {
@@ -17,9 +18,36 @@ h3 {
     font-size: larger;
 }
 
+.parties {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    width: 10rem;
+    height: 3rem;
+    margin: 1rem;
+    background-color: rgb(74, 134, 59);
+    border: none;
+    color: rgb(255, 255, 255);
+    font-size: medium;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: rgb(235, 168, 93);
+  }
+
 .senatorDiv {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between
 }
 
 .senatorDiv figure {
