@@ -34,11 +34,9 @@ function populateSenatorDiv(simpleSenators) {
     figImg.src = senator.imgURL;
     figCaption.textContent = senator.name;
 
-
     senFigure.appendChild(figImg);
     senFigure.appendChild(figCaption);
     senatorDiv.appendChild(senFigure);
-    
   });
 }
 
@@ -63,30 +61,35 @@ const biggestVacationerList = simplifiedSenators()
 seniorityHeading.textContent = `The most senior member of the senate is ${mostSeniorMemeber.name} 
 and the biggest vacationers are ${biggestVacationerList}`;
 
-const republicanList = document.querySelector(".republicanList")
-document.getElementById("showRepublicans").addEventListener("click", showRepublicans);
+const republicanList = document.querySelector(".republicanList");
+document
+  .getElementById("showRepublicans")
+  .addEventListener("click", showRepublicans);
 
-function showRepublicans () {
+function showRepublicans() {
   simplifiedSenators().forEach((senator) => {
-  if (senator.party === 'R') {
-    let repList = document.createElement("li");
-    repList.textContent = senator.name;
-    republicanList.appendChild(repList);
-  }
-})
+    if (senator.party === "R") {
+      let repList = document.createElement("li");
+      repList.textContent = senator.name;
+      republicanList.appendChild(repList);
+    }
+  });
 }
 
-const democratList = document.querySelector(".democratList")
-document.getElementById("showDemocrats").addEventListener("click", showDemocrats);
+const democratList = document.querySelector(".democratList");
+document
+  .getElementById("showDemocrats")
+  .addEventListener("click", showDemocrats);
 
-function showDemocrats () {
+function showDemocrats() {
   simplifiedSenators().forEach((senator) => {
-  if (senator.party === 'D') {
-    let demList = document.createElement("li");
-    demList.textContent = senator.name;
-    democratList.appendChild(demList);
-  }
-})
+    if (senator.party === "D") {
+      let demList = document.createElement("li");
+      // demList.id = 'showDemList';
+      demList.textContent = senator.name;
+      democratList.appendChild(demList);
+    }
+  });
 }
 
 simplifiedSenators().forEach((senator) => {
@@ -96,7 +99,6 @@ simplifiedSenators().forEach((senator) => {
     loyaltyList.appendChild(listItem);
   }
 });
-
 
 //To Do items to consider for your final project
 //To Do some sort of UI for sorting by party affiliation or by party and gender with a count
