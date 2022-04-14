@@ -8,8 +8,10 @@ const getAPIData = async (url) => {
 }
 
 async function loadPokemon(offset = 0, limit = 25) {
-    const pokeData = await getAPIData(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`)
-    for ( const nameAndUrl of pokeData.results ) { 
+    const pokeData = await getAPIData(
+        `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`,
+    )
+    for ( const nameAndUrl of pokeData.results) { 
       const pokemon = await getAPIData(nameAndUrl.url)
       populatePokeCard(pokemon)
     }
@@ -72,7 +74,9 @@ function populatePokeCard(pokemon) {
     pokeScene.className = 'scene'
     const pokeCard = document.createElement('div')
     pokeCard.className = 'card'
-    pokeCard.addEventListener('click', () => pokeCard.classList.toggle('is-flipped'))
+    pokeCard.addEventListener('click', () => 
+        pokeCard.classList.toggle('is-flipped'),
+        )
 
     pokeCard.appendChild(populateCardFront(pokemon))
     pokeCard.appendChild(populateCardBack(pokemon))
@@ -84,24 +88,23 @@ function populateCardFront(pokemon) {
     const pokeFront = document.createElement('figure')
     pokeFront.className = 'cardFace front'
     const pokeImg = document.createElement('img')
-    if(pokemon.id === 9001) {
-        pokeImg.src = '../images/pokeball.png'
+    if (pokemon.id > 9000) {
+      // load local image
+      pokeImg.src = '../images/pokeball.png'
     } else {
-        pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`
+      pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`
     }
     const pokeCaption = document.createElement('figcaption')
     pokeCaption.textContent = pokemon.name
-
-
-
+  
     pokeFront.appendChild(pokeImg)
     pokeFront.appendChild(pokeCaption)
     return pokeFront
-}
+  }
 
 function populateCardBack(pokemon) {
     const pokeBack = document.createElement('div')
-    pokeBack.className = 'cradFace back'
+    pokeBack.className = 'cardFace back'
     const label = document.createElement('h4')
     label.textContent = 'Abilities'
     pokeBack.appendChild(label)
@@ -115,4 +118,4 @@ function populateCardBack(pokemon) {
     return pokeBack
 }
 
-loadPokemon(0, 25)
+loadPokemon(0, 50)
