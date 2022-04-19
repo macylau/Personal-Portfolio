@@ -1,6 +1,7 @@
 * {
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
   }
   
   .pokeGrid {
@@ -30,6 +31,7 @@
     height: 100%;
     position: absolute;
     backface-visibility: hidden;
+    border-radius: 10px;
   }
   
   .card.is-flipped {
