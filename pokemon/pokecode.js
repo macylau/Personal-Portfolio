@@ -7,7 +7,7 @@ const getAPIData = async (url) => {
   }
 };
 
-const loadedPokemon = []
+const loadedPokemon = [];
 
 async function loadPokemon(offset = 0, limit = 25) {
   const pokeData = await getAPIData(
@@ -23,9 +23,9 @@ async function loadPokemon(offset = 0, limit = 25) {
       types: pokemon.types,
       abilities: pokemon.abilities,
       moves: pokemon.moves.slice(0, 3),
-    }
-    loadedPokemon.push(simplifiedPokemon)
-    populatePokeCard(simplifiedPokemon)
+    };
+    loadedPokemon.push(simplifiedPokemon);
+    populatePokeCard(simplifiedPokemon);
   }
 }
 class Pokemon {
@@ -101,14 +101,14 @@ function populatePokeCard(pokemon) {
 function populateCardFront(pokemon) {
   const pokeFront = document.createElement("figure");
   pokeFront.className = "cardFace front";
-  const pokeType1 = pokemon.types[0].type.name
-  //const pokeType2 = pokemon.types[1]?.type.name
-  // console.log(pokeType1, pokeType2)
-  // console.log(getPokeTypeColor(pokeType1))
-  pokeFront.style.setProperty('background', getPokeTypeColor(pokeType1))
-/*   if(pokeType2) {
-    pokeFront.style.setProperty('background', `linear-gradient(${getPokeTypeColor(pokeType1)}, {$getPokeTypeColor(pokeType2)})`)
-  } */
+  const pokeType1 = pokemon.types[0].type.name;
+  const pokeType2 = pokemon.types[1]?.type.name
+  console.log(pokeType1, pokeType2)
+  console.log(getPokeTypeColor(pokeType1))
+  pokeFront.style.setProperty("background", getPokeTypeColor(pokeType1));
+  if(pokeType2) {
+    pokeFront.style.setProperty('background', `linear-gradient(${getPokeTypeColor(pokeType1)}, ${getPokeTypeColor(pokeType2)})`)
+  } 
   const pokeImg = document.createElement("img");
   if (pokemon.id > 9000) {
     // load local image
@@ -118,6 +118,7 @@ function populateCardFront(pokemon) {
   }
   const pokeCaption = document.createElement("figcaption");
   pokeCaption.textContent = pokemon.name;
+
 
   pokeFront.appendChild(pokeImg);
   pokeFront.appendChild(pokeCaption);
@@ -141,49 +142,76 @@ function populateCardBack(pokemon) {
 }
 
 function getPokeTypeColor(pokeType) {
-    let color
-    //if(pokeType === "grass") color = '#00FF00'
-    switch (pokeType) {
-      case 'grass':
-        color = '#00FF00'
-        break
-      case 'fire':
-        color = '#FF0000'
-        break
-      case 'water':
-        color = '#0000FF'
-        break
-      case 'bug':
-        color = '#7FFF00'
-        break
-      case 'normal':
-        color = '#F5F5DC'
-        break
-      case 'flying':
-        color = '#00FFFF'
-        break
-      case 'poison':
-        color = '#C300FF'
-        break
-      case 'electric':
-        color = '#C8FF00'
-        break
-      case 'psychic':
-        color = 'pink'
-        break
-      case 'ground':
-        color = 'brown'
-        break
-      default:
-        color = '#888888'
-    }
-    return color
+  let color;
+  //if(pokeType === "grass") color = '#00FF00'
+  switch (pokeType) {
+    case "grass":
+      color = "#78C850";
+      break;
+    case "fire":
+      color = "#F08030";
+      break;
+    case "water":
+      color = "#6890F0";
+      break;
+    case "bug":
+      color = "#A8B820";
+      break;
+    case "normal":
+      color = "#A8A878";
+      break;
+    case "flying":
+      color = "#A890F0";
+      break;
+    case "poison":
+      color = "#A040A0";
+      break;
+    case "electric":
+      color = "#F8D030";
+      break;
+    case "psychic":
+      color = "#F85888";
+      break;
+    case "ground":
+      color = "#e0c068";
+      break;
+    case "rock":
+      color = "#B8A038";
+      break;
+    case "dark":
+      color = "#705848";
+      break;
+    case "fairy":
+      color = "#EE99AC";
+      break;
+    case "steel":
+      color = "#B8B8D0";
+      break;
+    case "ghost":
+      color = "#705898";
+      break;  
+    case "fighting":
+      color = "#C03028";
+      break; 
+    case "dragon":
+      color = "#7038F8";
+      break;  
+    case "unkown":
+      color = "#68A090";
+      break;  
+    case "ice":
+      color = "#98D8D8";
+      break;                    
+    default:
+      color = "#888888";
   }
+  return color;
+}
 
-  await loadPokemon(0, 250)
+await loadPokemon(0, 250);
 
-  function getPokemonByType(type) {
-    return loadedPokemon.filter((pokemon) => pokemon.types[0].type.name === type)
-  }
-  // now figure out how to display this count in the UI
-  console.log(getPokemonByType('poison'))
+function getPokemonByType(type) {
+  return loadedPokemon.filter((pokemon) => pokemon.types[0].type.name === type);
+}
+// now figure out how to display this count in the UI
+console.log(getPokemonByType("poison"));

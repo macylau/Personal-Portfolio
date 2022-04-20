@@ -3,6 +3,16 @@
     box-sizing: border-box;
     font-family: 'Ubuntu', sans-serif;
   }
+
+  button {
+    margin: .8em;
+    background: cadetblue;
+    color: rgb(253, 253, 94);
+    padding: 10px;
+    font-size: 24px;
+    border-radius: 5px;
+    border: none;
+  }
   
   .pokeGrid {
     display: flex;
@@ -12,7 +22,7 @@
   .scene {
   width: 200px;
   height: 260px;
-  margin: .5em;
+  margin: .8em;
   perspective: 600px;
   }
   
@@ -32,6 +42,7 @@
     position: absolute;
     backface-visibility: hidden;
     border-radius: 10px;
+    outline: 8px solid rgb(47, 58, 161);
   }
   
   .card.is-flipped {
@@ -43,6 +54,7 @@
   }
   
   .back {
+    padding: 10px;
     background: blue;
     transform: rotateY(180deg);
   }
