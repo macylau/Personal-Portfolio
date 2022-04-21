@@ -1,3 +1,5 @@
+
+
 const getAPIData = async (url) => {
   try {
     const result = await fetch(url);
@@ -53,15 +55,20 @@ newButton.addEventListener("click", () => {
   const pokeTypes = prompt(
     "What are your Pokemon's types? (up to 2 types separated by a space)"
   );
+  const pokeMoves = prompt(
+    "What are your Pokemon's moves? (up to 2 types separated by a space)"
+  );
+
+
 
   const newPokemon = new Pokemon(
     pokeName,
     pokeHeight,
     pokeWeight,
     makeAbilitiesArray(pokeAbilities),
-    makeTypesArray(pokeTypes)
+    makeTypesArray(pokeTypes),
+    makeMovesArray(pokeMoves)
   );
-  console.log(newPokemon);
   populatePokeCard(newPokemon);
 });
 
@@ -77,6 +84,14 @@ function makeTypesArray(spacedString) {
   return spacedString.split(" ").map((typeName) => {
     return {
       type: { name: typeName },
+    };
+  });
+}
+
+function makeMovesArray(spacedString) {
+  return spacedString.split(" ").map((moveName) => {
+    return {
+      move: { name: moveName },
     };
   });
 }
