@@ -72,16 +72,12 @@ button {
   height: 100%;
   position: absolute;
   backface-visibility: hidden;
-  border-radius: 10px;
-  border: 8px solid rgb(47, 58, 161);
+  border-radius: 5px;
+  outline: 8px solid rgb(47, 58, 161);
 }
 
 .card.is-flipped {
   transform: rotateY(180deg);
-}
-
-.front {
-  background-color: aqua;
 }
 
 .back {
