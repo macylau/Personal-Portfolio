@@ -103,8 +103,10 @@ figcaption {
 
 h4 {
   padding: 1px;
+  color: #131313;
 }
 
 li {
   list-style: "- ";
+  color: #131313;
 }
