@@ -4,7 +4,9 @@
   font-family: "Comfortaa", cursive;
 }
 
-
+#backgroundMusic {
+  display: none;
+}
 
 body {
   background-color: rgb(0, 0, 0);
