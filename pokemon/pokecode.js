@@ -1,5 +1,3 @@
-
-
 const getAPIData = async (url) => {
   try {
     const result = await fetch(url);
@@ -31,20 +29,20 @@ async function loadPokemon(offset = 0, limit = 25) {
   }
 }
 class Pokemon {
-  constructor(name, height, weight, abilities, types) {
+  constructor(name, height, weight, abilities, types, moves) {
     (this.id = 9001),
       (this.name = name),
       (this.height = height),
       (this.weight = weight),
       (this.abilities = abilities),
-      (this.types = types);
+      (this.types = types),
+      (this.moves = moves);
   }
 }
 
 const logo = document.createElement("img");
 logo.src = "../images/pokemon-logo.png";
 logo.className = "logo";
-
 
 const newButton = document.createElement("button");
 newButton.textContent = "New Pokemon";
@@ -62,10 +60,8 @@ newButton.addEventListener("click", () => {
     "What are your Pokemon's types? (up to 2 types separated by a space)"
   );
   const pokeMoves = prompt(
-    "What are your Pokemon's moves? (up to 2 types separated by a space)"
+    "What are your Pokemon's moves? (up to 3 types separated by a space)"
   );
-
-
 
   const newPokemon = new Pokemon(
     pokeName,
@@ -123,13 +119,18 @@ function populateCardFront(pokemon) {
   const pokeFront = document.createElement("figure");
   pokeFront.className = "cardFace front";
   const pokeType1 = pokemon.types[0].type.name;
-  const pokeType2 = pokemon.types[1]?.type.name
-  console.log(pokeType1, pokeType2)
-  console.log(getPokeTypeColor(pokeType1))
+  const pokeType2 = pokemon.types[1]?.type.name;
+  console.log(pokeType1, pokeType2);
+  console.log(getPokeTypeColor(pokeType1));
   pokeFront.style.setProperty("background", getPokeTypeColor(pokeType1));
-  if(pokeType2) {
-    pokeFront.style.setProperty('background', `linear-gradient(${getPokeTypeColor(pokeType1)}, ${getPokeTypeColor(pokeType2)})`)
-  } 
+  if (pokeType2) {
+    pokeFront.style.setProperty(
+      "background",
+      `linear-gradient(${getPokeTypeColor(pokeType1)}, ${getPokeTypeColor(
+        pokeType2
+      )})`
+    );
+  }
   const pokeImg = document.createElement("img");
   if (pokemon.id > 9000) {
     // load local image
@@ -139,7 +140,6 @@ function populateCardFront(pokemon) {
   }
   const pokeCaption = document.createElement("figcaption");
   pokeCaption.textContent = pokemon.name;
-
 
   pokeFront.appendChild(pokeImg);
   pokeFront.appendChild(pokeCaption);
@@ -153,7 +153,7 @@ function populateCardBack(pokemon) {
   const showID = document.createElement("h4");
   showID.textContent = "No." + pokemon.id;
   //show pokeName
-  const showPokeName = document.createElement('h4');
+  const showPokeName = document.createElement("h4");
   showPokeName.textContent = "Name: " + pokemon.name;
   //shoe types
   const showTypes = document.createElement("h4");
@@ -196,7 +196,6 @@ function populateCardBack(pokemon) {
     moveList.appendChild(listMove);
   });
   pokeBack.appendChild(moveList);
-
 
   return pokeBack;
 }
@@ -249,26 +248,26 @@ function getPokeTypeColor(pokeType) {
       break;
     case "ghost":
       color = "#705898";
-      break;  
+      break;
     case "fighting":
       color = "#C03028";
-      break; 
+      break;
     case "dragon":
       color = "#7038F8";
-      break;  
+      break;
     case "unkown":
       color = "#68A090";
-      break;  
+      break;
     case "ice":
       color = "#98D8D8";
-      break;                    
+      break;
     default:
       color = "#888888";
   }
   return color;
 }
 
-await loadPokemon(0, 250);
+await loadPokemon(0, 25);
 
 function getPokemonByType(type) {
   return loadedPokemon.filter((pokemon) => pokemon.types[0].type.name === type);
