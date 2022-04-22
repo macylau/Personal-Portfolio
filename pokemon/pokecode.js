@@ -41,9 +41,15 @@ class Pokemon {
   }
 }
 
+const logo = document.createElement("img");
+logo.src = "../images/pokemon-logo.png";
+logo.className = "logo";
+
+
 const newButton = document.createElement("button");
 newButton.textContent = "New Pokemon";
 const header = document.querySelector("header");
+header.appendChild(logo);
 header.appendChild(newButton);
 newButton.addEventListener("click", () => {
   const pokeName = prompt("What is the name of your new Pokemon?", "Meismon");
@@ -143,9 +149,33 @@ function populateCardFront(pokemon) {
 function populateCardBack(pokemon) {
   const pokeBack = document.createElement("div");
   pokeBack.className = "cardFace back";
-  const label = document.createElement("h4");
-  label.textContent = "Abilities";
-  pokeBack.appendChild(label);
+  //show pokeID
+  const showID = document.createElement("h4");
+  showID.textContent = "No." + pokemon.id;
+  //show pokeName
+  const showPokeName = document.createElement('h4');
+  showPokeName.textContent = "Name: " + pokemon.name;
+  //shoe types
+  const showTypes = document.createElement("h4");
+  showTypes.textContent = "Types";
+
+  pokeBack.appendChild(showID);
+  pokeBack.appendChild(showPokeName);
+  pokeBack.appendChild(showTypes);
+
+  const typeList = document.createElement("ul");
+  pokemon.types.forEach((typeItem) => {
+    const listType = document.createElement("li");
+    listType.textContent = typeItem.type.name;
+    typeList.appendChild(listType);
+  });
+  pokeBack.appendChild(typeList);
+
+  //show Abilities
+  const showAbility = document.createElement("h4");
+  showAbility.textContent = "Abilities";
+  pokeBack.appendChild(showAbility);
+
   const abilityList = document.createElement("ul");
   pokemon.abilities.forEach((abilityItem) => {
     const listItem = document.createElement("li");
@@ -153,6 +183,21 @@ function populateCardBack(pokemon) {
     abilityList.appendChild(listItem);
   });
   pokeBack.appendChild(abilityList);
+
+  // show moves
+  const showMove = document.createElement("h4");
+  showMove.textContent = "Moves";
+  pokeBack.appendChild(showMove);
+
+  const moveList = document.createElement("ul");
+  pokemon.moves.forEach((moveItem) => {
+    const listMove = document.createElement("li");
+    listMove.textContent = moveItem.move.name;
+    moveList.appendChild(listMove);
+  });
+  pokeBack.appendChild(moveList);
+
+
   return pokeBack;
 }
 
