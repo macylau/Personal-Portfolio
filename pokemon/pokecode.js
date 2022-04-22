@@ -267,7 +267,7 @@ function getPokeTypeColor(pokeType) {
   return color;
 }
 
-await loadPokemon(0, 25);
+await loadPokemon(0, 250);
 
 function getPokemonByType(type) {
   return loadedPokemon.filter((pokemon) => pokemon.types[0].type.name === type);
