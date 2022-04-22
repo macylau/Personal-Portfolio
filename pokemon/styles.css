@@ -73,7 +73,7 @@ button {
   position: absolute;
   backface-visibility: hidden;
   border-radius: 10px;
-  outline: 8px solid rgb(47, 58, 161);
+  border: 8px solid rgb(47, 58, 161);
 }
 
 .card.is-flipped {
