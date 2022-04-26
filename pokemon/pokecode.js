@@ -272,5 +272,6 @@ await loadPokemon(0, 250);
 function getPokemonByType(type) {
   return loadedPokemon.filter((pokemon) => pokemon.types[0].type.name === type);
 }
+
 // now figure out how to display this count in the UI
 console.log(getPokemonByType("poison"));
