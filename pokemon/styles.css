@@ -24,19 +24,24 @@ header {
   width: 400px;
 }
 
-button {
+.btnContainer {
   position: absolute;
-  top: 200px;
+  display: flex;
+  justify-content: center;
+  top: 220px;
+}
+
+button {
   height: 50px;
   width: 200px;
-  margin: 0.8em;
-  background: cadetblue;
-  color: rgb(253, 253, 94);
+  margin: 0 20px;
   padding: 10px;
-  font-size: 24px;
+  font-size: 20px;
   border-radius: 15px;
   border: none;
   box-shadow: 5px 5px 10px 0px #1f1f1f;
+  background: rgb(111, 162, 165);
+  color: rgb(253, 253, 94);
   cursor: pointer;
 }
 
@@ -46,7 +51,9 @@ button {
   cursor: pointer;
   padding: 0px 20px;
   border-radius: 15px;
-
+  background: rgba(43, 43, 43, 0.80);
+  color: white;
+  border: none;
 }
 
 audio {
@@ -89,7 +96,7 @@ audio {
   position: absolute;
   backface-visibility: hidden;
   border-radius: 5px;
-  outline: 8px solid rgb(47, 58, 161);
+  outline: 8px solid rgb(79, 86, 153);
 }
 
 .card.is-flipped {
@@ -98,8 +105,12 @@ audio {
 
 .back {
   padding: 10px;
-  background: rgb(109, 109, 187);
+  background: rgb(114, 114, 187);
   transform: rotateY(180deg);
+}
+
+p {
+  padding: 5px;
 }
 
 figure {
@@ -115,14 +126,18 @@ figure img {
 figcaption {
   text-align: center;
   font-weight: 700;
+  padding: 5px;
 }
 
 h4 {
   padding: 1px;
   color: #131313;
+  font-size: 14px;
 }
 
 li {
   list-style: "- ";
   color: #131313;
+  font-size: 14px;
+  font-weight: 600;
 }

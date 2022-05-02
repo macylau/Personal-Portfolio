@@ -15,9 +15,10 @@
   </head>
 <body>
   <header>
+    <container class="btnContainer"></container>
     <select id="type-select">
       <option>Please choose a Pokemon type</option>
-      <option>Show all Pokemon</option>
+      <option>Show All Pokemon</option>
       <option>Grass</option>
       <option>Fire</option>
       <option>Water</option>
@@ -38,14 +39,13 @@
       <option>Ice</option>
       <option>Unknown</option>
     </select>
+  </header>
+  <main>
     <section>
       <audio controls autoplay loop id="backgroundMusic">
         <source src="/audios/Pokemon-battle.wav" type="audio/wav" />
       </audio>
     </section>
-  </header>
-  <main>
-    
     <div class="pokeGrid"></div>
   </main>
   <footer></footer>

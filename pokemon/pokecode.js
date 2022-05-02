@@ -1,3 +1,5 @@
+import { removeChildren } from '../utils/index.js'
+
 const getAPIData = async (url) => {
   try {
     const result = await fetch(url);
@@ -23,13 +25,15 @@ async function loadPokemon(offset = 0, limit = 25) {
       types: pokemon.types,
       abilities: pokemon.abilities,
       moves: pokemon.moves.slice(0, 3),
+      hp: pokemon.stats[0].base_stat
     };
+    console.log(pokemon.stats[0].base_stat)
     loadedPokemon.push(simplifiedPokemon);
     populatePokeCard(simplifiedPokemon);
   }
 }
 class Pokemon {
-  constructor(name, height, weight, abilities, types, moves) {
+  constructor(name, height, weight, abilities, types, moves, hp) {
     (this.id = 9001),
       (this.name = name),
       (this.height = height),
@@ -37,23 +41,37 @@ class Pokemon {
       (this.abilities = abilities),
       (this.types = types),
       (this.moves = moves);
+      (this.hp = hp)
   }
 }
 
+const header = document.querySelector('header')
 const logo = document.createElement("img");
 logo.src = "../images/pokemon-logo.png";
 logo.className = "logo";
+header.appendChild(logo);
 
-
+const container = document.querySelector('container')
 const newButton = document.createElement("button");
 newButton.textContent = "New Pokemon";
-const header = document.querySelector("header");
-header.appendChild(logo);
-header.appendChild(newButton);
+newButton.className = "newBtn"
+container.appendChild(newButton);
+
+const loadButton = document.createElement('button')
+loadButton.textContent = 'Load Pokemon'
+loadButton.className = "loadBtn"
+container.appendChild(loadButton)
+loadButton.addEventListener('click', async () => {
+  if (loadedPokemon.length === 0) {
+    removeChildren(pokeGrid)
+    await loadPokemon(0, 250)
+  }
+})
+
 newButton.addEventListener("click", () => {
-  const pokeName = prompt("What is the name of your new Pokemon?", "Meismon");
-  const pokeHeight = prompt("What is the Pokemon's height?", 20);
-  const pokeWeight = prompt("What is the Pokemon's weight?", 80);
+  const pokeName = prompt("What is the name of your new Pokemon?");
+  const pokeHeight = prompt("What is the Pokemon's height?");
+  const pokeWeight = prompt("What is the Pokemon's weight?");
   const pokeAbilities = prompt(
     "What are your Pokemon's abilities? (use a comman-separated list)"
   );
@@ -125,13 +143,10 @@ function populateCardFront(pokemon) {
   console.log(getPokeTypeColor(pokeType1));
   pokeFront.style.setProperty("background", getPokeTypeColor(pokeType1));
   if (pokeType2) {
-    pokeFront.style.setProperty(
-      "background",
-      `linear-gradient(${getPokeTypeColor(pokeType1)}, ${getPokeTypeColor(
-        pokeType2
-      )})`
+    pokeFront.style.setProperty("background", `linear-gradient(${getPokeTypeColor(pokeType1)}, ${getPokeTypeColor(pokeType2)})`
     );
   }
+
   const pokeImg = document.createElement("img");
   if (pokemon.id > 9000) {
     // load local image
@@ -142,6 +157,7 @@ function populateCardFront(pokemon) {
   const pokeCaption = document.createElement("figcaption");
   pokeCaption.textContent = pokemon.name;
 
+
   pokeFront.appendChild(pokeImg);
   pokeFront.appendChild(pokeCaption);
   return pokeFront;
@@ -150,18 +166,26 @@ function populateCardFront(pokemon) {
 function populateCardBack(pokemon) {
   const pokeBack = document.createElement("div");
   pokeBack.className = "cardFace back";
-  //show pokeID
-  const showID = document.createElement("h4");
-  showID.textContent = "No." + pokemon.id;
+  //show pokeId
+  const pokeId = document.createElement("h4")
+  pokeId.textContent = "No. " + pokemon.id;
   //show pokeName
   const showPokeName = document.createElement("h4");
-  showPokeName.textContent = "Name: " + pokemon.name;
+  showPokeName.textContent = "Name : " + pokemon.name;
+  //show pokeHP
+  const showHP = document.createElement("h4");
+  showHP.textContent = "HP : " + pokemon.hp;
+  //show height and weight
+  const showSize = document.createElement("h4");
+  showSize.textContent = "Height : " + pokemon.height + " Weight : " + pokemon.weight;
   //shoe types
   const showTypes = document.createElement("h4");
   showTypes.textContent = "Types";
 
-  pokeBack.appendChild(showID);
+  pokeBack.appendChild(pokeId);
   pokeBack.appendChild(showPokeName);
+  pokeBack.appendChild(showHP);
+  pokeBack.appendChild(showSize);
   pokeBack.appendChild(showTypes);
 
   const typeList = document.createElement("ul");
@@ -268,11 +292,26 @@ function getPokeTypeColor(pokeType) {
   return color;
 }
 
-await loadPokemon(0, 250);
 
 function getPokemonByType(type) {
   return loadedPokemon.filter((pokemon) => pokemon.types[0].type.name === type);
 }
 
 // now figure out how to display this count in the UI
-console.log(getPokemonByType("poison"));
+const typeSelector = document.querySelector('#type-select')
+typeSelector.addEventListener('change', (event) => {
+  removeChildren(pokeGrid) // cleared out the grid from all pokemon
+  const usersTypeChoice = event.target.value.toLowerCase()
+  if (event.target.value === 'Show All Pokemon') {
+    loadedPokemon.forEach((singleLoadedPokemon) =>
+      populatePokeCard(singleLoadedPokemon),
+    )
+  } else {
+    const pokemonByType = getPokemonByType(usersTypeChoice)
+    // now just loop through the filtered array and populate
+    pokemonByType.forEach((eachSinglePokemon) =>
+      populatePokeCard(eachSinglePokemon),
+    )
+  }
+})
+
