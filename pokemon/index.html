@@ -13,39 +13,42 @@
     <link href="styles.css" rel="stylesheet" />
     <title>Gotta Catch 'Em All!</title>
   </head>
-  <body>
-    <audio controls autoplay loop id="backgroundMusic">
-      <source src="/audios/Pokemon-battle.wav" type="audio/wav" />
-    </audio>
-    <header>
-      <!-- <select id="type-select">
-        <option>--Please choose a Pokemon type--</option>
-        <option>Show all Pokemon</option>
-        <option>Grass</option>
-        <option>Fire</option>
-        <option>Water</option>
-        <option>Bug</option>
-        <option>Normal</option>
-        <option>Flying</option>
-        <option>Poison</option>
-        <option>Electric</option>
-        <option>Psychic</option>
-        <option>Ground</option>
-        <option>Rock</option>
-        <option>Dark</option>
-        <option>Fairy</option>
-        <option>Steel</option>
-        <option>Ghost</option>
-        <option>Fighting</option>
-        <option>Dragon</option>
-        <option>Ice</option>
-        <option>Unknown</option>
-      </select> -->
-    </header>
-    <main>
-      <div class="pokeGrid"></div>
-    </main>
-    <footer></footer>
-    <script src="pokecode.js" type="module"></script>
-  </body>
+<body>
+  <header>
+    <select id="type-select">
+      <option>Please choose a Pokemon type</option>
+      <option>Show all Pokemon</option>
+      <option>Grass</option>
+      <option>Fire</option>
+      <option>Water</option>
+      <option>Bug</option>
+      <option>Normal</option>
+      <option>Flying</option>
+      <option>Poison</option>
+      <option>Electric</option>
+      <option>Psychic</option>
+      <option>Ground</option>
+      <option>Rock</option>
+      <option>Dark</option>
+      <option>Fairy</option>
+      <option>Steel</option>
+      <option>Ghost</option>
+      <option>Fighting</option>
+      <option>Dragon</option>
+      <option>Ice</option>
+      <option>Unknown</option>
+    </select>
+    <section>
+      <audio controls autoplay loop id="backgroundMusic">
+        <source src="/audios/Pokemon-battle.wav" type="audio/wav" />
+      </audio>
+    </section>
+  </header>
+  <main>
+    
+    <div class="pokeGrid"></div>
+  </main>
+  <footer></footer>
+  <script src="pokecode.js" type="module"></script>
+</body>
 </html>

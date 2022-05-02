@@ -44,6 +44,7 @@ const logo = document.createElement("img");
 logo.src = "../images/pokemon-logo.png";
 logo.className = "logo";
 
+
 const newButton = document.createElement("button");
 newButton.textContent = "New Pokemon";
 const header = document.querySelector("header");
