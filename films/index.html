@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="film-styles.css" rel="stylesheet"/>
-  <title>Star Wars Film Posters</title>
-</head>
-<body>
-  <h1>Welcome to my Star Wars poster page!</h1>
-  <main id="filmList">
-  </main>
-  <script src="starwars-films.js" type="module"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="film-styles.css" rel="stylesheet" />
+    <title>Star Wars Film Posters</title>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to the Star Wars poster page</h1>
+      <h3>These are 7 Star Wars Movies so far!</h3>
+      <section>
+        <audio controls autoplay loop id="backgroundMusic">
+          <source src="/audios/Star_Wars_Main_Theme_Song.mp3" type="audio/mp3" />
+        </audio>
+      </section>
+    </header>
+    <main id="filmList"></main>
+    <script src="starwars-films.js" type="module"></script>
+  </body>
 </html>
