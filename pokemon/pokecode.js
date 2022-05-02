@@ -25,7 +25,7 @@ async function loadPokemon(offset = 0, limit = 25) {
       types: pokemon.types,
       abilities: pokemon.abilities,
       moves: pokemon.moves.slice(0, 3),
-      hp: pokemon.stats[0].base_stat
+      hp: pokemon.stats[0].base_stat,
     };
     console.log(pokemon.stats[0].base_stat)
     loadedPokemon.push(simplifiedPokemon);
@@ -33,15 +33,15 @@ async function loadPokemon(offset = 0, limit = 25) {
   }
 }
 class Pokemon {
-  constructor(name, height, weight, abilities, types, moves, hp) {
+  constructor(name, hp, height, weight, abilities, types, moves) {
     (this.id = 9001),
       (this.name = name),
+      (this.hp = hp),
       (this.height = height),
       (this.weight = weight),
       (this.abilities = abilities),
       (this.types = types),
       (this.moves = moves);
-      (this.hp = hp)
   }
 }
 
@@ -70,6 +70,7 @@ loadButton.addEventListener('click', async () => {
 
 newButton.addEventListener("click", () => {
   const pokeName = prompt("What is the name of your new Pokemon?");
+  const pokeHp = prompt("What is your new Pokemon's health point?");
   const pokeHeight = prompt("What is the Pokemon's height?");
   const pokeWeight = prompt("What is the Pokemon's weight?");
   const pokeAbilities = prompt(
@@ -84,6 +85,7 @@ newButton.addEventListener("click", () => {
 
   const newPokemon = new Pokemon(
     pokeName,
+    pokeHp,
     pokeHeight,
     pokeWeight,
     makeAbilitiesArray(pokeAbilities),
