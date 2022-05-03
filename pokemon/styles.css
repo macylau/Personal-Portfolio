@@ -56,6 +56,26 @@ button {
   border: none;
 }
 
+.backBtn {
+  position: absolute;
+  width: 80px;
+  top: 20px;
+  left: 20px;
+  height: 40px;
+  background: rgb(85, 85, 85);
+  color: white;
+  font-size: 12px;
+  border-radius: 30px;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+}
+
+.backBtn:hover {
+  background: rgb(85, 85, 85);
+}
+
 audio {
   position: absolute;
   top: 40px;
@@ -75,7 +95,7 @@ audio {
 .scene {
   width: 200px;
   height: 260px;
-  margin: 0.8em;
+  margin: 1em;
   perspective: 600px;
   text-transform: capitalize;
 }

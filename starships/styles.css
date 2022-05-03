@@ -7,30 +7,81 @@ body {
     background-image: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
 }
 
-header h1 {
+header {
+    height: 200px;
+    padding: 50px;
     text-align: center;
+    box-shadow: 0px 0px 10px 0px #000000;
+}
+
+header h1 {
+    color: rgb(187, 185, 255);
+    margin: .5rem;
+    text-shadow: 4px 2px 10px #000000;
+    font-size: 32px;
+}
+
+header h3 {
+    color: rgb(230, 255, 185);
+    margin: 1rem;
+    text-shadow: 4px 2px 10px #000000;
+    font-size: 20px;
+}
+
+audio {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 150px;
+    height: 40px;
+    opacity: 0.7;
+  }
+
+.backBtn {
+  position: absolute;
+  width: 80px;
+  top: 20px;
+  left: 20px;
+  height: 40px;
+  font-size: 12px;
+  border: none;
+  color: rgb(255, 255, 255);
+  background: rgb(85, 85, 85);
+  border-radius: 30px;
+  align-items: center;
+  cursor: pointer;
+}
+
+main {
+    height: 1000px;
+    display: flex;
+    flex-direction: row;
 }
 
 .mainContainer {
     display: flex;
+    text-align: left;
+    margin-top: 20px;
     justify-content: center;
 }
-  .shipViewer img {
-    padding: 5rem;
-  }
+
+.shipViewer {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    top: 500px;
+}
+
+.shipViewer img {
+  padding: 5rem;
+}
 
 .box {
-    background: rgb(164, 255, 246);
-    color: rgb(37, 37, 37);
+    background: rgb(52, 102, 97);
+    color: rgb(255, 255, 255);
     text-align: center;
+    border-radius: 15px;
 }
-
-.nav {
-    min-width: 16rem;
-    text-align: center;
-}
-
-
 
 h1 {
     color: rgb(187, 185, 255);
@@ -39,19 +90,79 @@ h1 {
     font-weight: 600;
   }
 
+.nav {
+    position: absolute;
+    text-align: center;
+    margin: 10px;
+    padding: 5px;
+}
+
 ul {
-    margin: 1rem;
+    display: flex;
+    flex-wrap: wrap;
     list-style-type: none;
+}
+
+li {
     cursor: pointer;
+    padding: 3px;
 }
 
 a {
+    background: rgb(160, 96, 73);
+    border-radius: 5px;
     text-decoration: none;
-    font-size: large;
+    font-size: medium;
+    padding: 0 5px;
     color: white;
 }
 
 a:hover {
-    color: rgb(99, 199, 0);
+    background: rgb(72, 33, 145);
+    color: white;
 }
 
+/* a:after {
+    background: rgb(72, 33, 145);
+    color: white;
+} */
+
+@media screen and (min-width: 985px) {
+  
+    .shipViewer{
+        top: 350px;
+    }
+  }
+
+@media screen and (max-width: 984px) {
+
+  .shipViewer{
+      top: 400px;
+  }
+}
+
+@media screen and (max-width: 787px) {
+
+    .shipViewer{
+        top: 440px;
+    }
+  } 
+
+@media screen and (max-width: 786px) {
+  
+    .shipViewer{
+        top: 480px;
+    }
+  }
+
+@media screen and (max-width: 641px) {
+  .shipViewer{
+      top: 550px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+    .shipViewer{
+        top: 580px;
+    }
+  }

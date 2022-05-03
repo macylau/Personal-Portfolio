@@ -20,11 +20,15 @@ header {
 h1 {
   color: rgb(187, 185, 255);
   margin: .5rem;
+  text-shadow: 4px 2px 10px #000000;
+  font-size: 32px;
 }
 
 h3 {
   color: rgb(230, 255, 185);
   margin: 1rem;
+  text-shadow: 4px 2px 10px #000000;
+  font-size: 20px;
 }
 
 audio {
@@ -34,6 +38,21 @@ audio {
   width: 150px;
   height: 40px;
   opacity: 0.7;
+}
+
+.backBtn {
+  position: absolute;
+  width: 80px;
+  top: 20px;
+  left: 20px;
+  height: 40px;
+  font-size: 12px;
+  border: none;
+  color: rgb(255, 255, 255);
+  background: rgb(85, 85, 85);
+  border-radius: 30px;
+  align-items: center;
+  cursor: pointer;
 }
 
 main {
@@ -58,6 +77,7 @@ figure {
 figure:hover {
   background: rgb(151, 141, 52);
   border: 2px solid rgb(151, 141, 52);
+  box-shadow: 0px 0px 10px 0px rgb(151, 141, 52);
 }
 
 figure img {

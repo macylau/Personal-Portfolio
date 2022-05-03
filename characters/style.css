@@ -10,7 +10,6 @@ html {
   background-image: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
 }
 
-
 header {
   height: 200px;
   padding: 50px;
@@ -27,16 +26,37 @@ audio {
   opacity: 0.7;
 }
 
+.backBtn {
+  position: absolute;
+  width: 80px;
+  top: 20px;
+  left: 20px;
+  height: 40px;
+  background: rgb(85, 85, 85);
+  font-size: 12px;
+  border-radius: 30px;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+}
+
+.backBtn:hover {
+  background: rgb(85, 85, 85);
+}
+
 button {
-  width: 12rem;
+  position: relative;
+  top: 30px;
+  width: 10rem;
   height: 3rem;
   margin: 1rem;
   padding: 0 5px;
   background-color: rgb(74, 134, 59);
   border: none;
   color: rgb(255, 255, 255);
-  font-size: medium;
   border-radius: 15px;
+  font-size: 14px;
   cursor: pointer;
   box-shadow: 0px 0px 10px 0px #000000;
 }
@@ -55,6 +75,13 @@ button:hover {
 
 #others:hover {
   background-color: rgb(167, 100, 255);
+}
+
+@media screen and (max-width: 870px) {
+  
+  header{
+      height: 300px;
+  }
 }
 
 main {
