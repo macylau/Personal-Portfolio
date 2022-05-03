@@ -1,11 +1,13 @@
 import { senators } from "../data/senators.js";
 import { representatives } from "../data/representatives.js";
+import { getLastNumber, removeChildren } from '../utils/index.js'
 
 const allCongressMemebers = [...senators, ...representatives]; // modern way to combine arrays
 
 const senatorDiv = document.querySelector(".senatorDiv");
 const seniorityHeading = document.querySelector(".seniorty");
 const loyaltyList = document.querySelector(".loyaltyList");
+
 
 function simplifiedSenators() {
   return senators.map((senator) => {
@@ -59,38 +61,47 @@ const biggestVacationerList = simplifiedSenators()
   .join(" and ");
 
 seniorityHeading.textContent = `The most senior member of the senate is ${mostSeniorMemeber.name} 
-and the biggest vacationers are ${biggestVacationerList}`;
+and the biggest vacationers are ${biggestVacationerList}.`;
+
+
+const democratList = document.querySelector(".democratList")
+const demBtn = document.getElementById("showDemocrats");
+document.addEventListener("click", showDemocrats);
+demBtn.onclick = function () {
+  if (democratList.style.display !== "flex") {
+    democratList.style.display = "flex";
+  } else {
+    democratList.style.display = "none";
+  }
+}
+
+simplifiedSenators().forEach((senator) => {
+  if (senator.party === "D") {
+    let listItem = document.createElement("li");
+    listItem.textContent = senator.name + ", "; 
+    democratList.appendChild(listItem);
+  }
+});
 
 const republicanList = document.querySelector(".republicanList");
-document
-  .getElementById("showRepublicans")
-  .addEventListener("click", showRepublicans);
-
-function showRepublicans() {
-  simplifiedSenators().forEach((senator) => {
-    if (senator.party === "R") {
-      let repList = document.createElement("li");
-      repList.textContent = senator.name;
-      republicanList.appendChild(repList);
-    }
-  });
+const repBtn = document.getElementById("showRepublicans");
+document.addEventListener("click", showRepublicans);
+repBtn.onclick = function () {
+  if (republicanList.style.display !== "flex") {
+    republicanList.style.display = "flex";
+  } else {
+    republicanList.style.display = "none";
+  }
 }
 
-const democratList = document.querySelector(".democratList");
-document
-  .getElementById("showDemocrats")
-  .addEventListener("click", showDemocrats);
+simplifiedSenators().forEach((senator) => {
+  if (senator.party === "R") {
+    let repList = document.createElement("li");
+    repList.textContent = senator.name + ", ";
+    republicanList.appendChild(repList);
+  }
+});
 
-function showDemocrats() {
-  simplifiedSenators().forEach((senator) => {
-    if (senator.party === "D") {
-      let demList = document.createElement("li");
-      // demList.id = 'showDemList';
-      demList.textContent = senator.name;
-      democratList.appendChild(demList);
-    }
-  });
-}
 
 simplifiedSenators().forEach((senator) => {
   if (senator.loyaltyPct === 100) {

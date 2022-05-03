@@ -5,32 +5,59 @@
     font-family: 'Poppins', sans-serif;
 }
 
-header {
-    margin: 10px;
-    text-align: center;
+
+html {
+    background-color: rgb(0, 0, 0);
+    background-image: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
 }
+
+header {
+    height: auto;
+    padding: 50px;
+    text-align: center;
+    box-shadow: 0px 0px 10px 0px #000000;
+}
+
+.backBtn {
+    position: absolute;
+    width: 80px;
+    top: 20px;
+    left: 20px;
+    height: 40px;
+    font-size: 12px;
+    border: none;
+    color: rgb(255, 255, 255);
+    background: rgb(85, 85, 85);
+    border-radius: 30px;
+    align-items: center;
+    cursor: pointer;
+  }
 
 h1 {
-    color: saddlebrown;
+    color: rgb(59, 90, 177);
 }
 
-h3 {
+.seniorty {
     font-size: larger;
+    color: rgb(184, 255, 255);
 }
 
-.parties {
+ul {
     display: flex;
-    justify-content: space-around;
-    padding: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 li {
-    list-style: none;
+    padding: 3px;
+    color: rgb(230, 230, 230);
+    list-style-type: none;
 }
 
-header h3 {
+header h2 {
     margin-top: 20px;
-    color: rgb(51, 51, 190);
+    color: seniorty;
+    color: rgb(43, 85, 141);
 }
 
 button {
@@ -43,16 +70,21 @@ button {
     font-size: medium;
     border-radius: 15px;
     cursor: pointer;
-  }
+}
   
-  button:hover {
-    background-color: rgb(235, 168, 93);
-  }
+button:hover {
+  background-color: rgb(235, 168, 93);
+}
+
+main {
+    padding: 20px;
+}  
 
 .senatorDiv {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between
+    justify-content: space-between;
+    margin: 0 auto;
 }
 
 .senatorDiv figure {
@@ -60,10 +92,29 @@ button {
     padding: 5px;
     text-align: center;
     justify-content: center;
-    border: 2px solid rgb(32, 32, 32);
+    border: 2px solid rgb(83, 83, 83);
+    background: rgb(192, 192, 192);
     border-radius: 5px;
 }
 
-.senatorDiv figure:hover {
-    border: 2px solid rgb(78, 212, 0);
+.parties {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
 }
+
+.small-container {
+    width: 50%;
+}
+
+#democratList {
+    display: none;
+}
+
+#republicanList {
+    display: none;
+}
+
+
+
+
