@@ -1,5 +1,6 @@
 # My Personal Portfolio Page #
 
-## This is where I'm showing my new HTML/CSS/JavaScript ##
+## This is where I'm showing my HTML/CSS/JavaScript ##
 
-:grin:
+### Quick link to view the project https://macys-personal-portfolio.netlify.app/ ###
+
